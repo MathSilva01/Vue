@@ -1,0 +1,45 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ contador }}</p>
+    <p>{{ contador }}</p>
+    <button v-on:click="somar">Somar 1</button>
+
+    <p v-once>{{ contador5 }}</p>
+    <p>{{ contador5 }}</p>
+    <button v-on:click="somar5(5, $event)">Somar 5</button>
+
+    <p v-on:mousemove='atualizarXY'>Mouse: {{ x }} e {{ y }} <span v-on:mousemove.stop="">PARAR AQUI A ANALISE</span> </p>
+    <input v-on:keyup.enter="exibirAlerta" type="text" name="" id="">
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+             contador: 0,
+             contador5: 0,
+             x: 0,
+             y: 0,
+        },
+        methods: {
+            somar(e) {
+                console.log(e)
+                this.contador ++
+            },
+            atualizarXY(event) {
+                console.log(event)
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            somar5(passo, ev) {
+                console.log(passo, ev)
+                this.contador5 += passo
+            },
+            exibirAlerta(event) {
+                alert('Estou alertando')
+            }
+        }
+    })
+
+</script>
