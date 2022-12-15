@@ -12,34 +12,4 @@
     <p v-on:mousemove='atualizarXY'>Mouse: {{ x }} e {{ y }} <span v-on:mousemove.stop="">PARAR AQUI A ANALISE</span> </p>
     <input v-on:keyup.enter="exibirAlerta" type="text" name="" id="">
 </div>
-
-<script>
-    new Vue ({
-        el: '#app',
-        data: {
-             contador: 0,
-             contador5: 0,
-             x: 0,
-             y: 0,
-        },
-        methods: {
-            somar(e) {
-                console.log(e)
-                this.contador ++
-            },
-            atualizarXY(event) {
-                console.log(event)
-                this.x = event.clientX
-                this.y = event.clientY
-            },
-            somar5(passo, ev) {
-                console.log(passo, ev)
-                this.contador5 += passo
-            },
-            exibirAlerta(event) {
-                alert('Estou alertando')
-            }
-        }
-    })
-
-</script>
+<script src="script.js"></script>
